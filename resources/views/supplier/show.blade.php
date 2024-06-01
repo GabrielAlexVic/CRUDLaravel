@@ -14,12 +14,11 @@
 
     <div class="container">
         <div class="d-flex vh-100 justify-content-center align-items-center">
-            <form class="row" action="/update-supplier/{{ $supplier->id }}" method="POST">
+            <div class="row">
 
                 @csrf
-                @method("PUT")
                 <div class="col-md-12 mt-4">
-                    <h1 class="text-center">UPDATE</h1>
+                    <h1 class="text-center">GET</h1>
                 </div>
                 <div class="col-md-1 mt-4">
                     <label>ID:</label>
@@ -27,24 +26,21 @@
                 </div>
                 <div class="col-md-11 mt-4">
                     <label>Name:</label>
-                    <input type="text" class="form-control" placeholder="Enter your new name here..." name="name" value="{{ $supplier->name }}" required>
+                    <input type="text" class="form-control" placeholder="Enter your new name here..." name="name" value="{{ $supplier->name }}" disabled>
                 </div>
                 <div class="col-md-6 mt-4">
                     <label>Email:</label>
-                    <input type="text" class="form-control" placeholder="Enter your new email here..." name="email" value="{{ $supplier->email }}" required>
+                    <input type="text" class="form-control" placeholder="Enter your new email here..." name="email" value="{{ $supplier->email }}" disabled>
                 </div>
                 <div class="col-md-6 mt-4">
                     <label>Phone:</label>
-                    <input type="text" class="form-control" placeholder="Enter your new phone here..." name="phone" value="{{ $supplier->phone }}" required>
+                    <input type="text" class="form-control" placeholder="Enter your new phone here..." name="phone" value="{{ $supplier->phone }}" disabled>
                 </div>
                 <div class="col-md-12 mt-4">
                     <label>Address:</label>
-                    <input type="text" class="form-control" placeholder="Enter your new address here..." name="address" value="{{ $supplier->address }}" required>
+                    <input type="text" class="form-control" placeholder="Enter your new address here..." name="address" value="{{ $supplier->address }}" disabled>
                 </div>
-                <div class="col-md-12 mt-4">
-                    <button class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 

@@ -14,36 +14,10 @@
     <div class="container">
         <div class="d-flex justify-content-center align-items-center">
             <div class="row">
-                <h1 class="text-center">Lista de Fornecedores</h1>
+                <h1 class="text-center">Home</h1>
 
                 <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Update</th>
-                                <th scope="col-">Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($suppliers as $supplier)
-                                <tr>
-                                    <th scope="row">{{ $supplier->id }}</th>
-                                    <td>{{ $supplier->name }}</td>
-                                    <td>{{ $supplier->email }}</td>
-                                    <td>{{ $supplier->phone }}</td>
-                                    <td>{{ $supplier->address }}</td>
-                                    <td><a href="edit-supplier/{{ $supplier->id }}" class="btn btn-primary">Update</a></td>
-                                    <td><a href="delete-supplier/{{ $supplier->id }}" class="btn btn-danger">Delete</a></td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <a href="create-supplier" class="btn btn-success">Create new supplier</a>
+
                 </div>
             </div>
             

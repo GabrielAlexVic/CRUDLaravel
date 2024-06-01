@@ -3,65 +3,23 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Supplier;
+use App\Http\Controllers\SupplierController;
 
 Route::get('/', function () {
-    $suppliers = Supplier::all();
-    return view('home', ['suppliers' => $suppliers]);
+    return redirect()->route('supplier.list');
 });
 
-Route::get('/create-supplier', function () {
-    return view('supplierCreate');
-});
+Route::get('/supplier/list', [SupplierController::class, 'list'])
+     ->name('supplier.list');
 
-Route::post('/store-supplier', function (Request $data) {
-    $supplier = Supplier::create([
-        'name' => $data->name,
-        'email' => $data->email,
-        'phone' => $data->phone,
-        'address' => $data->address
-    ]);
-    return redirect("/");
-});
+Route::get('/supplier/create', [SupplierController::class, 'create']);
 
-Route::get('/get-supplier/{supplierID}', function ($supplierId) {
-    $supplier = Supplier::findOrFail($supplierId);
-    echo 'name: ';
-    echo $supplier->name;
-    echo '<br/>';
+Route::post('/supplier/store', [SupplierController::class, 'store']);
 
-    echo 'email: ';
-    echo $supplier->email;
-    echo '<br/>';
+Route::get('/supplier/get/{supplierId}', [SupplierController::class, 'show']);
 
-    echo 'phone: ';
-    echo $supplier->phone;
-    echo '<br/>';
+Route::get('/supplier/edit/{supplierId}', [SupplierController::class, 'edit']);
 
-    echo 'address: ';
-    echo $supplier->address;
-});
+Route::put('/supplier/update/{supplierId}', [SupplierController::class, 'update']);
 
-Route::get('/edit-supplier/{supplierID}', function ($supplierId) {
-    $supplier = Supplier::findOrFail($supplierId);
-    return view('supplierUpdate', ['supplier' => $supplier]);
-});
-
-Route::put('update-supplier/{supplierID}', function (Request $data, $supplierId) {
-    $supplier = Supplier::findOrFail($supplierId);
-
-    $supplier->name = $data->name;
-    $supplier->email = $data->email;
-    $supplier->phone = $data->phone;
-    $supplier->address = $data->address;
-
-    $supplier->save();
-
-    return redirect("/get-supplier/{$supplierId}");
-});
-
-Route::get('delete-supplier/{supplierId}', function ($supplierId) {
-    $supplier = Supplier::findOrFail($supplierId);
-    $supplier->delete();
-
-    return redirect('/');
-});
+Route::get('/supplier/delete/{supplierId}', [SupplierController::class, 'destroy']);
