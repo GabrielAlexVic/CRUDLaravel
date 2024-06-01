@@ -5,17 +5,22 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Supplier;
 
 Route::get('/', function () {
+    $suppliers = Supplier::all();
+    return view('home', ['suppliers' => $suppliers]);
+});
+
+Route::get('/create-supplier', function () {
     return view('supplierCreate');
 });
 
-Route::post('/create-supplier', function (Request $data) {
+Route::post('/store-supplier', function (Request $data) {
     $supplier = Supplier::create([
         'name' => $data->name,
         'email' => $data->email,
         'phone' => $data->phone,
         'address' => $data->address
     ]);
-    return redirect("/get-supplier/{$supplier->id}");
+    return redirect("/");
 });
 
 Route::get('/get-supplier/{supplierID}', function ($supplierId) {

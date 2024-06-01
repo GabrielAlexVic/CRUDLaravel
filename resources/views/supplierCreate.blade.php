@@ -14,7 +14,7 @@
 
     <div class="container">
         <div class="d-flex vh-100 justify-content-center align-items-center">
-            <form class="row" action="/create-supplier" method="POST">
+            <form class="row" action="/store-supplier" method="POST">
                 @csrf
 
                 <div class="col-md-12 mt-4">
