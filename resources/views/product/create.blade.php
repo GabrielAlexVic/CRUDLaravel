@@ -14,27 +14,31 @@
 
   <div class="container">
     <div class="d-flex vh-100 justify-content-center align-items-center">
-      <form class="row" action="/supplier/store" method="POST">
+      <form class="row" action="/product/store" method="POST">
         @csrf
 
         <div class="col-md-12 mt-4">
-          <h1 class="text-center">Create supplier</h1>
+          <h1 class="text-center">Create Product</h1>
         </div>
         <div class="col-md-12 mt-4">
           <label>Name:</label>
-          <input type="text" class="form-control" placeholder="Enter a new product name here.." name="name" required>
+          <input type="text" class="form-control" placeholder="Enter a product name here..." name="name" required>
         </div>
         <div class="col-md-12 mt-4">
-          <label>Email:</label>
-          <input type="text" class="form-control" placeholder="Enter your email here..." name="email" required>
+          <label>Price:</label>
+          <input type="text" class="form-control" placeholder="Enter price here..." name="price" required>
         </div>
         <div class="col-md-12 mt-4">
-          <label>Phone:</label>
-          <input type="text" class="form-control" placeholder="Enter your phone here..." name="phone" required>
+          <label>Quantity:</label>
+          <input type="text" class="form-control" placeholder="Enter quantity here..." name="quantity" required>
         </div>
         <div class="col-md-12 mt-4">
-          <label>Address:</label>
-          <input type="text" class="form-control" placeholder="Enter your address here..." name="address" required>
+          <label>Supplier:</label>
+          <select class="form-control" name="supplier_id" required>
+              @foreach($suppliers as $supplier)
+                <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+              @endforeach
+          </select>
         </div>
         <div class="col-md-12 mt-4">
           <button class="btn btn-primary">Submit</button>

@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Supplier;
+use App\Models\Product;
 
 class SupplierController extends Controller
 {
-    public function list()
-    {
-        $suppliers = Supplier::all();
-        return view('supplier.list', ['suppliers' => $suppliers]);
-    }
-
     public function create()
     {
         return view('supplier.create');
+    }
+
+    public function list()
+    {
+        $suppliers = Supplier::all();
+        return view('supplier.list', compact('suppliers'));
     }
 
     public function store(Request $request)
@@ -27,20 +28,22 @@ class SupplierController extends Controller
             'address' => $request->address
         ]);
 
-        return redirect("/");
+        return redirect()->route('supplier.list');
     }
 
     public function show($supplierId)
     {
         $supplier = Supplier::findOrFail($supplierId);
+        
+        $products = Product::where('supplier_id', $supplierId)->get();
 
-        return view('supplier.show', ['supplier' => $supplier]);
+        return view('supplier.show', compact('supplier', 'products'));
     }
 
     public function edit($supplierId)
     {
         $supplier = Supplier::findOrFail($supplierId);
-        return view('supplier.edit', ['supplier' => $supplier]);
+        return view('supplier.edit', compact('supplier'));
     }
 
     public function update(Request $request, $supplierId)
@@ -54,7 +57,7 @@ class SupplierController extends Controller
     
         $supplier->save();
     
-        return redirect("/");
+        return redirect()->route('supplier.list');
     }
 
     public function destroy($supplierId)
@@ -62,7 +65,7 @@ class SupplierController extends Controller
         $supplier = Supplier::findOrFail($supplierId);
         $supplier->delete();
 
-        return redirect('/');
+        return redirect()->route('supplier.list');
     }
 
 }
