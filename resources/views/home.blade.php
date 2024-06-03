@@ -11,19 +11,21 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="row">
-        <h1 class="text-center">Home</h1>
+  @include('shared.navbar')
+  <div class="container-fluid">
 
-        <div class="table-responsive">
-
+    <div class="px-4 py-5 my-5 text-center">
+      <h1 class="display-5 fw-bold text-body-emphasis">Alunos</h1>
+      <div class="col-lg-6 mx-auto">
+        <h5>Gabriel Alexandre Victório | RA: 233138-1</h5>
+        <h5>Vitor Ferrarese Pegino | RA: 215993-1</h5>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+          <a href="/supplier/list" class="btn btn-primary btn-lg px-4 gap-3">Suppliers</a>
+          <a href="/product/list" class="btn btn-primary btn-lg px-4">Products</a>
         </div>
       </div>
-
     </div>
   </div>
-
 
 </body>
 

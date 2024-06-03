@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+  @include('shared.navbar')
   <div class="container">
     <div class="d-flex vh-100 justify-content-center align-items-center">
       <form class="row" action="/product/store" method="POST">

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  @include('shared.navbar')
   <div class="container">
     <div class="d-flex justify-content-center align-items-center">
       <div class="row">

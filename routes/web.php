@@ -7,7 +7,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
-    return redirect()->route('supplier.list');
+    return view('home');
 });
 
 Route::get('/supplier/list', [SupplierController::class, 'list'])
