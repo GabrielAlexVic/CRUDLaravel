@@ -19,6 +19,7 @@
       <div class="col-lg-6 mx-auto">
         <h5>Gabriel Alexandre Victório | RA: 233138-1</h5>
         <h5>Vitor Ferrarese Pegino | RA: 215993-1</h5>
+        <h5>Leonardo Rodrigues dos Santos | RA: 60002150</h5>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
           <a href="/supplier/list" class="btn btn-primary btn-lg px-4 gap-3">Suppliers</a>
           <a href="/product/list" class="btn btn-primary btn-lg px-4">Products</a>
