@@ -9,3 +9,8 @@ Trabalho da matéria de desenvolvimento web.
 - [Gabriel Alexandre Victório](https://github.com/GabrielAlexVic)
 - RA:233138-1
 
+
+- [Leonardo Rodrigues dos Santos](https://github.com/RankoW)
+- RA:60002150
+
+
